@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="~{fragments/general.html :: head}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{fragments/general.html :: navi}"></th:block>
+<div class="zawartosc">
+		<div class="kolumna">
+ 	<h2>Lista zwierząt</h2>
+ 	
+ 	<br/><br/>
+ 	<table>
+ 	<thead>
+ 		<tr>
+ 			<th>Id zwierzaka</th>
+		  	<th>Imię</th>
+ 			<th>Gatunek</th>
+ 			<th>Płeć</th>
+ 		    <th>Rasa</th>
+ 		    <th>Wiek</th>
+ 		    <th>Historia</th>
+ 		</tr>
+	</thead>
+ 	<tbody>
+ 		<tr th:each="zwierze : ${listZwierzeta}">
+ 			<td th:text="${zwierze.idz}"></td>
+ 			<td th:text="${zwierze.imie}"></td>
+ 			<td th:text="${zwierze.gatunek}"></td>
+ 			<td th:text="${zwierze.plec}"></td>
+ 			<td th:text="${zwierze.rasa}"></td>
+ 			<td th:text="${zwierze.wiek}"></td>
+ 			<td th:text="${zwierze.historia}"></td>
+ 			<td>
+ 			<a th:href="@{'edycja_zwierzat/' + ${zwierze.idz}}">Edycja</a>
+ 			&nbsp;&nbsp;&nbsp;
+ 			<a th:href="@{'zwierzeta_usuwanie/' + ${zwierze.idz}}">Usuń</a>
+ 			</td>
+ 		</tr>
+ 		
+ 	</tbody>
+ 	</table>
+ 	 		<a th:href="dodawanie_zwierzat">Dodawanie</a>
+	</div>
+</div>
+</body>
+</html>

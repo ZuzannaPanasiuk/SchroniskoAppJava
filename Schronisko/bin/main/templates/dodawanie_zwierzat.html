@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="~{fragments/general.html :: head}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{fragments/general.html :: navi}"></th:block>
+<div class="zawartosc">
+	<div class="kolumna">
+
+<h2>Dodawanie nowego zwierzaka</h2>
+ 	<br />
+ 
+ 	<form action="#" th:action="@{/zwierzeta_zapis}" th:object="${nowyZwierzeta}" method="post">
+ 		<table>
+ 			<tr>
+				<td>Imię</td>
+ 				<td><input type="text" th:field="*{imie}" required="required"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Gatunek</td>
+ 				<td><input type="text" th:field="*{gatunek}" required="required"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Płeć</td>
+ 				<td>
+ 				<select type="text" th:field="*{plec}" required="required">
+				    <option th:value="'M'">M</option>
+				    <option th:value="'K'">K</option>
+				    <option th:value="'?'">?</option>
+				</select>
+ 				</td>
+ 			</tr>
+ 			<tr>
+ 				<td>Rasa</td>
+ 				<td><input type="text" th:field="*{rasa}" required="required"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Wiek</td>
+ 				<td><input type="text" th:field="*{wiek}" required="required"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Historia</td>
+ 				<td><input type="text" th:field="*{historia}" required="required"/></td>
+ 			</tr>
+ 		</table>
+ 	
+ 		<button type="submit">Zapisz</button>
+ 	</form>
+ 	</div>
+</div>
+</body>
+</html>

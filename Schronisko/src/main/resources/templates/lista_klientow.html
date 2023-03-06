@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="~{fragments/general.html :: head}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{fragments/general.html :: navi}"></th:block>
+<div class="zawartosc">
+		<div class="kolumna">
+ 	<h2>Lista klientów</h2>
+ 	
+ 	<br/><br/>
+ 	<table>
+ 	<thead>
+ 		<tr>
+ 			<th>Id klienta</th>
+		  	<th>Imię</th>
+ 			<th>Nazwisko</th>
+ 			<th>Email</th>
+ 		</tr>
+	</thead>
+ 	<tbody>
+ 		<tr th:each="klient : ${listKlienci}">
+ 			<td th:text="${klient.idk}"></td>
+ 			<td th:text="${klient.imie}"></td>
+ 			<td th:text="${klient.nazwisko}"></td>
+ 			<td th:text="${klient.email}"></td>
+ 			<td>
+ 			<a th:href="@{'edycja_klientow/' + ${klient.idk}}">Edycja</a>
+ 			&nbsp;&nbsp;&nbsp;
+ 			<a th:href="@{'klienci_usuwanie/' + ${klient.idk}}">Usuń</a>
+ 			</td>
+ 		</tr>
+ 		
+ 	</tbody>
+ 	</table>
+ 	 		<a th:href="dodawanie_klientow">Dodawanie</a>
+	</div>
+</div>
+</body>
+</html>

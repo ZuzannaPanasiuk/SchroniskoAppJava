@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="~{fragments/general.html :: head}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{fragments/general.html :: navi}"></th:block>
+<div class="zawartosc">
+		<div class="kolumna">
+ 	<h2>Lista adopcji</h2>
+ 	
+ 	<br/><br/>
+ 	<table>
+ 	<thead>
+ 		<tr>
+ 			<th>Id Adopcji</th>
+		  	<th>Imię i Nazwisko Klienta</th>
+ 			<th>Imię Zwierzaka</th>
+ 			<th>Data</th>
+ 		</tr>
+	</thead>
+ 	<tbody>
+ 		<tr th:each="adopcja : ${listAdopcje}">
+ 			<td th:text="${adopcja.ida}"></td>
+ 			<td th:text="${adopcja.klient.imie} + ' ' + ${adopcja.klient.nazwisko}"></td>
+ 			<td th:text="${adopcja.zwierze.imie}"></td>
+ 			<td th:text="${adopcja.data}"></td>
+ 			<td>
+ 			<a th:href="@{'edycja_adopcji/' + ${adopcja.ida}}">Edycja</a>
+ 			&nbsp;&nbsp;&nbsp;
+ 			<a th:href="@{'adopcje_usuwanie/' + ${adopcja.ida}}">Usuń</a>
+ 			</td>
+ 		</tr>
+ 		
+ 	</tbody>
+ 	</table>
+ 	 		<a th:href="dodawanie_adopcji">Dodawanie</a>
+		</div>
+</div>
+</body>
+</html>

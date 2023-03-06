@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="~{fragments/general.html :: head}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{fragments/general.html :: navi}"></th:block>
+<div class="zawartosc">
+	<div class="kolumna">
+
+<h2>Dodawanie nowego klienta</h2>
+ 	<br />
+ 
+ 	<form action="#" th:action="@{/klienci_zapis}" th:object="${nowyKlienci}" method="post">
+ 		<table>
+ 			<tr>
+				<td>
+				Imię
+				<span class="error" th:if="${#fields.hasErrors('imie')}" th:errors="*{imie}">Error imie</span>
+				</td>
+ 				<td><input type="text" th:field="*{imie}" required="required"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Nazwisko</td>
+ 				<td><input type="text" th:field="*{nazwisko}" required="required"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Email</td>
+ 				<td><input type="text" th:field="*{email}" required="required"/></td>
+ 			</tr>
+ 		</table>
+ 	
+ 		<button type="submit">Zapisz</button>
+ 	</form>
+ 	</div>
+</div>
+</body>
+</html>

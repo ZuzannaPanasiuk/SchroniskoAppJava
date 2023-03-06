@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="~{fragments/general.html :: head}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{fragments/general.html :: navi}"></th:block>
+	<div class="zawartosc">
+		<div class="kolumna">
+		<h2>Edycja rekordu o domu tymczasowym</h2>
+		<br />
+		<form action="#" th:action="@{/adopcje_zapis}" th:object="${tymczas}" method="post">
+			<table>
+				<tr>
+					<td>Id Tymczasu:</td>
+					<td><input type="text" th:field="*{idt}" readonly="readonly" required="required"/></td>
+				</tr>
+				<tr>
+					<td>Wolontariusz</td>
+				    <td>
+				        <select th:field="*{wolontariusz}" required="required">
+				          <option th:each="wolontariusz: ${lw}" th:value="${wolontariusz.idw}" th:text="${wolontariusz.imie} + ' ' + ${wolontariusz.nazwisko} + ' ' + '(nr: ' + ${wolontariusz.nr_tel} +')'">
+				          </option>
+				        </select>
+				    </td>
+	 			</tr>
+	 			<tr>
+				 	<td>Zwierze</td>
+				    <td>
+				        <select th:field="*{zwierze}" required="required">
+				          <option th:each="zwierze: ${lz}" th:value="${zwierze.idz}" th:text="${zwierze.imie}">
+				          </option>
+				        </select>
+				    </td>
+	 			</tr>
+	 			<tr>
+	 				<td>Data</td>
+	 				<td><input type="date" th:field="*{data}" required="required"/></td>
+ 				</tr>
+			</table>
+			<button type="submit">Zapisz</button>
+		</form>
+		</div>
+	</div>
+</body>
+</html>

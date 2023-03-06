@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="head">
+        <meta charset="UTF-8">
+        <title>Aplikacja Schronisko</title>
+        <link rel="stylesheet" th:href="@{/styles1.css}">
+    </div>
+
+</head>
+<body>
+    <div th:fragment="navi">
+        <nav>
+			<a th:href="@{/home}">Strona domowa</a>
+            <a th:href="@{/lista_zwierzat}">Zwierzęta</a>
+            <a th:href="@{/lista_klientow}">Klienci</a>
+            <a th:href="@{/lista_wolontariuszy}">Wolontariusze</a>
+            <a th:href="@{/lista_adopcji}">Adopcje</a>
+            <a th:href="@{/lista_tymczasow}">Tymczas</a>
+        </nav>
+    </div>
+
+</body>
+</html>

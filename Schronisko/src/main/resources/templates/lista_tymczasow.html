@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="~{fragments/general.html :: head}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{fragments/general.html :: navi}"></th:block>
+<div class="zawartosc">
+		<div class="kolumna">
+ 	<h2>Lista tymczasów</h2>
+ 	
+ 	<br/><br/>
+ 	<table>
+ 	<thead>
+ 		<tr>
+ 			<th>Id Tymczasu</th>
+		  	<th>Imię i Nazwisko Wolontariusza</th>
+ 			<th>Imię Zwierzaka</th>
+ 			<th>Data Początkowa Pobytu w domu tymczasowym</th>
+ 			<th>Data Końcowa</th>
+ 		</tr>
+	</thead>
+ 	<tbody>
+ 		<tr th:each="tymczas : ${listTymczas}">
+ 			<td th:text="${tymczas.idt}"></td>
+ 			<td th:text="${tymczas.wolontariusz.imie} + ' ' + ${tymczas.wolontariusz.nazwisko}"></td>
+ 			<td th:text="${tymczas.zwierze.imie}"></td>
+ 			<td th:text="${tymczas.data_poczatkowa}"></td>
+ 			<td th:text="${tymczas.data_koncowa}"></td>
+ 			<td>
+ 			<a th:href="@{'edycja_tymczasow/' + ${tymczas.idt}}">Edycja</a>
+ 			&nbsp;&nbsp;&nbsp;
+ 			<a th:href="@{'tymczas_usuwanie/' + ${tymczas.idt}}">Usuń</a>
+ 			</td>
+ 		</tr>
+ 		
+ 	</tbody>
+ 	</table>
+ 	 		<a th:href="dodawanie_tymczasow">Dodawanie</a>
+	</div>	
+</div>
+</body>
+</html>

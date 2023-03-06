@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="~{fragments/general.html :: head}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{fragments/general.html :: navi}"></th:block>
+<div class="zawartosc">
+	<div class="kolumna">
+
+<h2>Dodawanie nowego wolontariusza</h2>
+ 	<br />
+ 
+ 	<form action="#" th:action="@{/wolontariusze_zapis}" th:object="${nowyWolontariusze}" method="post">
+ 		<table>
+ 			<tr>
+				<td>Imię</td>
+ 				<td><input type="text" th:field="*{imie}" required="required"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Nazwisko</td>
+ 				<td><input type="text" th:field="*{nazwisko}" required="required"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Nr telefonu</td>
+ 				<td><input type="text" th:field="*{nr_tel}" required="required"/></td>
+ 			</tr>
+ 			<tr>
+ 				<td>Rola</td>
+ 				<td>
+ 				<select type="text" th:field="*{rola}" required="required">
+				    <option th:value="'Wyprowadzacz psów'">Wyprowadzacz psów</option>
+				    <option th:value="'Dom tymczasowy'">Dom tymczasowy</option>
+				    <option th:value="'Patron finansowy'">Patron finansowy</option>
+				</select>
+ 				</td>
+ 			</tr>
+ 		</table>
+ 	
+ 		<button type="submit">Zapisz</button>
+ 	</form>
+ 	</div>
+</div>
+</body>
+</html>

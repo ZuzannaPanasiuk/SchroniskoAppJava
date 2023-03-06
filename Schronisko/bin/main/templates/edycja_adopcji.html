@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:insert="~{fragments/general.html :: head}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{fragments/general.html :: navi}"></th:block>
+	<div class="zawartosc">
+		<div class="kolumna">
+		<h2>Edycja rekordu adopcji</h2>
+		<br />
+		<form action="#" th:action="@{/adopcje_zapis}" th:object="${adopcja}" method="post">
+			<table>
+				<tr>
+					<td>Id Adopcji:</td>
+					<td><input type="text" th:field="*{ida}" readonly="readonly" required="required"/></td>
+				</tr>
+				<tr>
+					<td>Klient</td>
+				    <td>
+				        <select th:field="*{klient}" required="required">
+				          <option th:each="klient: ${lk}" th:value="${klient.idk}" th:text="${klient.email}" >
+				          </option>
+				        </select>
+				    </td>
+	 			</tr>
+	 			<tr>
+				 	<td>Zwierze</td>
+				    <td>
+				        <select th:field="*{zwierze}" required="required">
+				          <option th:each="zwierze: ${lz}" th:value="${zwierze.idz}" th:text="${zwierze.imie}">
+				          </option>
+				        </select>
+				    </td>
+	 			</tr>
+	 			<tr>
+	 				<td>Data</td>
+	 				<td><input type="date" th:field="*{data}" required="required"/></td>
+ 				</tr>
+			</table>
+			<button type="submit">Zapisz</button>
+		</form>
+	</div>
+	</div>
+</body>
+</html>
