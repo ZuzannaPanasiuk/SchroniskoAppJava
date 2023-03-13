@@ -1,3 +1,4 @@
+# SchroniskoAppJava
 --PL--
 
 Projekt applikacji webowej wspomagającej korzystanie z bazy danych potencjalnego Schroniska dla zwierząt. Aplikacja zrobiona na potrzeby przedmiotu Projektowanie Aplikacji Webowych, stworzony w frameworku Spring języka Java oraz oparty o bazę danych utworzoną w PostgreSQL.
